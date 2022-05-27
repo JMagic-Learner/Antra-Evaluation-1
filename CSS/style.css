@@ -1,0 +1,90 @@
+body {
+    margin-top:-1%;
+}
+
+.post-submit {
+    display:flex;
+    margin:auto;
+    width:80%;
+}
+
+.main-title{
+    text-align:center;
+}
+
+li {
+    list-style:none;
+}
+
+#textbox-search {
+    width:100%;
+    height:50px;
+}
+
+.banner{
+    position:fixed;
+    width:100%;
+    background-image: url("../assets/download.jpg");
+    margin-top:0%;
+    padding-bottom:1%;
+}
+
+.container1{
+    width:80%;
+}
+
+.action-buttons {
+    width:50%;
+    background-color:red;
+    
+}
+
+#results {
+    margin:auto;
+    width:50%;
+    text-align:center;
+    background-color:white;
+}
+
+.album-body {
+    width:24%;
+    background-color: gray;
+    margin:1px;
+}
+
+#content-body {
+    display:flex;
+    flex-wrap: wrap;
+    margin:1%;
+    width:100%;
+    padding-top:17%;
+}
+
+.album-container{
+    width:90%;
+    margin:10%;
+    margin-top:15%;
+    text-align:center;
+  
+}
+.album-container2{
+    width:90%;
+    margin:10%;
+    margin-top:15%;
+  
+}
+
+.loader {
+    margin:auto;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
