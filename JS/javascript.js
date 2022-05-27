@@ -4,18 +4,23 @@ let postResult = []; // host all posts
 let content_body_main = document.getElementById("content-body");
 let results_body = document.getElementById("results-display")
 let artistSearch;
+let artist;
+let album;
+let image;
 
 function renderHTML(jsonData) {
-    const generateListComplete = generateList(postResult); // STEP 4: use json from fetch, into a function to generate html template
+     
+     generateList(postResult); // STEP 4: use json from fetch, into a function to generate html template
 
 }
 
 // STEP 5: Received JSON DATA, map jsonData array. 
 function generateList(jsonData) {
   let arrayLevel1 = jsonData.results;
+
+
   // console.log(arrayLevel1);
   //   console.log(arrayLevel1.length);
-    let timer=0;
     console.log(jsonData)
     let numberResults = arrayLevel1.length
     // let resultsDisplay = document.createElement('p');
@@ -23,17 +28,19 @@ function generateList(jsonData) {
       loading.classList.add("loader")
     for (let time=0; time<=2000; time++) {
       if(time==2000){
-        results_body.innerHTML = `Results Found: ${numberResults}`;
+        results_body.innerHTML = `Results Found: ${numberResults} for ${artistSearch}`;
         results_body.appendChild(loading);
       }
     }
  
-    
-  
-  for (let i= 0;  i<= arrayLevel1.length; i++) {
-    let artist = arrayLevel1[i].collectionName
-    let album = arrayLevel1[i].artistName
-    let image = arrayLevel1[i].artworkUrl100
+  arrayLevel1.forEach((item) => {
+    // for (let i= 0;  i<= arrayLevel1.length; i++) {
+     artist = item.collectionName
+     album = item.artistName
+     image = item.artworkUrl100
+      // artist = arrayLevel1[i].collectionName
+      // album = arrayLevel1[i].artistName
+      // image = arrayLevel1[i].artworkUrl100
     let AlbumBody = document.createElement('div')
     let AlbumContainer = document.createElement('div');
     let AlbumContainer2 = document.createElement('div');
@@ -60,6 +67,7 @@ function generateList(jsonData) {
    unordered.appendChild(artistDisplay);
    unordered.appendChild(albumDisplay);
   }
+  )
 
   }
 
@@ -81,6 +89,7 @@ function inputLogging() {
 
 function searchForArtist() {
   submitButton.addEventListener('click', ()=> {
+    content_body_main.innerHTML="";
     console.log("Button has been clicked");
     console.log(artistSearchInput.value);
     artistSearch = artistSearchInput.value
