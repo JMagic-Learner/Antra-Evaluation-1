@@ -21,7 +21,7 @@ li {
     height:50px;
 }
 
-.banner{
+.banner {
     position:fixed;
     width:100%;
     background-image: url("../assets/download.jpg");
@@ -74,6 +74,24 @@ li {
   
 }
 
+#load-display {
+    width:100%;
+    margin-top:0%;
+    padding-bottom:1%;
+}
+
+.load-more-container {
+    width:50%;
+    margin:auto;
+}
+
+.load-more-button {
+    
+    width:100%;
+    text-align:center;
+    background-color:white;
+}
+
 .loader {
     margin:auto;
     border: 16px solid #f3f3f3; /* Light grey */
@@ -88,3 +106,4 @@ li {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
