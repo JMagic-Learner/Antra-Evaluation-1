@@ -85,7 +85,7 @@ li {
     margin:auto;
 }
 
-.load-more-button {
+.load-more-button ,.load-all-button{
     
     width:100%;
     text-align:center;

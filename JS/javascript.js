@@ -29,8 +29,9 @@ function generateList(jsonData) {
     }
   createLoadButton();
   loadMoreResults();
+  loadAllResults(arrayLevel1.length);
   } else {
-  
+    console.log("We have found no other results");
     load_body.innerHTML="";   // If there are no more results to load, do not display the load_body
     for (let i = 0; i < arrayLevel1.length; i++ ) {
       arrayTest.push(arrayLevel1[i]);
@@ -71,6 +72,16 @@ function loadMoreResults() {
   })
 }
 
+function loadAllResults(length) {
+  let AllButton = document.querySelector('.load-all-button');
+  console.log("LoadAllResults have been clicked");
+  AllButton.addEventListener('click', () => {
+  loadLimit = length;
+ 
+  renderHTML();
+  })
+}
+
 function searchForArtist() {
   submitButton.addEventListener('click', () => {
     loadLimit=4;
@@ -96,12 +107,16 @@ function startAPISearch() {
 
 function createLoadButton() {
   let LoadMore = document.createElement('button')
+  let LoadAll = document.createElement('button')
   let loadContainer = document.createElement('div')
   load_body.innerHTML="";
   LoadMore.innerHTML="Load More";
+  LoadAll.innerHTML="Load All";
   load_body.appendChild(loadContainer);
   loadContainer.appendChild(LoadMore);
+  loadContainer.appendChild(LoadAll);
   LoadMore.classList.add("load-more-button");
+  LoadAll.classList.add("load-all-button");
   loadContainer.classList.add("load-more-container");
 }
 
