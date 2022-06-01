@@ -13,7 +13,6 @@ let loadLimit = 4;
 function renderHTML(jsonData) {
   content_body_main.innerHTML = "";
   generateList(postResult); // STEP 4: use json from fetch, into a function to generate html template
-
 }
 
 
@@ -23,7 +22,13 @@ function generateList(jsonData) {
   let arrayLevel1 = jsonData.results;
   let arrayTest=[];
 
-  if (arrayLevel1.length >= loadLimit ) {
+  if (arrayLevel1.length===loadLimit) {
+    load_body.innerHTML="";
+    for (let i = 0; i <= loadLimit-1; i++) {
+      arrayTest.push(arrayLevel1[i]);
+    }
+  } else if (arrayLevel1.length >= loadLimit ) {
+   
     for (let i = 0; i <= loadLimit-1; i++) {
       arrayTest.push(arrayLevel1[i]);
     }
@@ -37,13 +42,14 @@ function generateList(jsonData) {
       arrayTest.push(arrayLevel1[i]);
     }
     
+    
   }
   console.log(arrayTest);
   console.log(jsonData)
   let numberResults = arrayLevel1.length
   results_body.innerHTML = `Results Found: ${arrayTest.length} / ${numberResults} for ${artistSearch}`;
   createResultsDisplay(arrayTest);
-
+  
 }
 
 // READING COMMENTS/TEXT
@@ -77,7 +83,6 @@ function loadAllResults(length) {
   console.log("LoadAllResults have been clicked");
   AllButton.addEventListener('click', () => {
   loadLimit = length;
- 
   renderHTML();
   })
 }
